@@ -82,8 +82,8 @@ void calculateSmoothedPrices(int limit, int emaLength, ENUM_MA_METHOD maMethod)
    {
     for(int i = limit; i >= 0; i--)
        {
-        // if (time[i] > g_limitDate)
-        //    break;
+        if(Time[i] < g_limitDate)
+            continue;
         double smoothedOpen = iMA(NULL, 0, emaLength, 0, maMethod, PRICE_OPEN, i);
         double smoothedHigh = iMA(NULL, 0, emaLength, 0, maMethod, PRICE_HIGH, i);
         double smoothedLow = iMA(NULL, 0, emaLength, 0, maMethod, PRICE_LOW, i);
